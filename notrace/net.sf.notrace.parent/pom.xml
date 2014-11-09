@@ -87,5 +87,6 @@
   	<module>../../chart/net.tourbook.common</module>
   	<module>../../chart/net.tourbook.ext.jars</module>
   	<module>../net.sf.notrace.feature</module>
+  	<module>../net.sf.notrace.application.test</module>
   </modules>
 </project>

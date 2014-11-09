@@ -18,6 +18,10 @@ import org.eclipse.swt.widgets.Shell;
 public class AboutHandler {
 	@Execute
 	public void execute(Shell shell) {
-		MessageDialog.openInformation(shell, "About", "Eclipse 4 Application example.");
+		MessageDialog.openInformation(shell, "About", getGreeting());
+	}
+
+	public String getGreeting() {
+		return "NoTrace E4 Application";
 	}
 }
