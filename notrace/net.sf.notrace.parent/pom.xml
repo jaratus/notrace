@@ -35,6 +35,35 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <environments>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+      <plugin>
         <!-- enable the Tycho build extension -->
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
@@ -66,6 +95,11 @@
 				 <bundle>
 						<id>org.eclipse.equinox.ds</id>
 						<level>2</level>
+						<autoStart>true</autoStart>
+				 </bundle>
+				 <bundle>
+						<id>org.eclipse.equinox.event</id>
+						<level>4</level>
 						<autoStart>true</autoStart>
 				 </bundle>
 			</bundleStartLevel>
