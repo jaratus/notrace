@@ -9,9 +9,8 @@ Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.expressions,
- net.tourbook.common
+ net.tourbook.common,
+ net.tourbook.ext.jars;bundle-version="12.12.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: net.tourbook.chart
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.joda.time,
- org.joda.time.format

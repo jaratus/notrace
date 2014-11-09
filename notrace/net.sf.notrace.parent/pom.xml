@@ -83,5 +83,8 @@
   	<module>../../lib/com.fasterxml.jackson.dataformat</module>
   	<module>../../lib/com.fasterxml.jackson.datatype</module>
   	<module>../../lib/com.fasterxml.jackson.module</module>
+  	<module>../../chart/net.tourbook.chart</module>
+  	<module>../../chart/net.tourbook.common</module>
+  	<module>../../chart/net.tourbook.ext.jars</module>
   </modules>
 </project>
