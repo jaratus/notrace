@@ -19,6 +19,14 @@
                name="appName"
                value="net.sf.notrace.application">
          </property>
+         <property
+               name="applicationXMI"
+               value="net.sf.notrace.application/Application.e4xmi">
+         </property>
+         <property
+               name="clearPersistedState"
+               value="true">
+         </property>
       </product>
    </extension>
 

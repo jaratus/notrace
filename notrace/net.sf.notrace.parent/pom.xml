@@ -50,7 +50,7 @@
             <useUIThread>false</useUIThread>
             <product>net.sf.notrace.application.product</product>
             <application>org.eclipse.e4.ui.workbench.swt.E4Application</application>
-            <appArgLine>-consolelog -clearPersistedState</appArgLine>
+            <appArgLine>-consolelog -clearPersistedState -applicationXMI net.sf.notrace.application/Application.e4xmi</appArgLine>
             <!-- Start level setting, not sure should be disable -->
             <bundleStartLevel>
 				 <bundle>
@@ -86,5 +86,6 @@
   	<module>../../chart/net.tourbook.chart</module>
   	<module>../../chart/net.tourbook.common</module>
   	<module>../../chart/net.tourbook.ext.jars</module>
+  	<module>../net.sf.notrace.feature</module>
   </modules>
 </project>
