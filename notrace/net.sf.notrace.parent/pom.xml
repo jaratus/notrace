@@ -80,5 +80,6 @@
   <modules>
   	<module>../net.sf.notrace.application</module>
   	<module>../../lib/com.fasterxml.jackson</module>
+  	<module>../../lib/com.fasterxml.jackson.dataformat</module>
   </modules>
 </project>
