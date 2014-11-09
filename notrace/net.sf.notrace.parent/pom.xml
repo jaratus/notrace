@@ -11,7 +11,7 @@
     <platform-version-name>luna</platform-version-name>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
     <swtbot-site>http://download.eclipse.org/technology/swtbot/snapshots</swtbot-site>
-    <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20130118183705/repository</orbit-site>  
+    <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository</orbit-site>  
   </properties>
   
   <repositories>
@@ -50,7 +50,7 @@
             <useUIThread>false</useUIThread>
             <product>net.sf.notrace.application.product</product>
             <application>org.eclipse.e4.ui.workbench.swt.E4Application</application>
-            <appArgLine>-consolelog -clearPersistedState -applicationXMI net.sf.notrace.application/Application.e4xmi</appArgLine>
+            <appArgLine>-consolelog -clearPersistedState</appArgLine>
             <!-- Start level setting, not sure should be disable -->
             <bundleStartLevel>
 				 <bundle>
@@ -88,5 +88,6 @@
   	<module>../../chart/net.tourbook.ext.jars</module>
   	<module>../net.sf.notrace.feature</module>
   	<module>../net.sf.notrace.application.test</module>
+  	<module>../../lib/com.fasterxml.jackson.test</module>
   </modules>
 </project>

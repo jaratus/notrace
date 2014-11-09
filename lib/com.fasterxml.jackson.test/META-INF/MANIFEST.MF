@@ -6,4 +6,5 @@ Bundle-Version: 2.4.3.qualifier
 Bundle-Vendor: FASTERXML
 Fragment-Host: com.fasterxml.jackson;bundle-version="2.4.3"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.junit
+Require-Bundle: org.junit,
+ net.sf.notrace.application;bundle-version="1.0.0"
