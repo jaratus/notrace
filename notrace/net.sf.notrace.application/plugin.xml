@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="net.sf.notrace.application"
+            application="org.eclipse.e4.ui.workbench.swt.E4Application">
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/net.sf.notrace.application/css/default.css">
+         </property>
+         <property
+               name="lifeCycleURI"
+               value="bundleclass://net.sf.notrace.application/net.sf.notrace.application.E4LifeCycle">
+         </property>
+         <property
+               name="appName"
+               value="net.sf.notrace.application">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
