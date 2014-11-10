@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/net.sf.notrace.feature_1.0.0.qualifier.jar" id="net.sf.notrace.feature" version="1.0.0.qualifier">
+      <category name="net.sf.notrace.category"/>
+   </feature>
+   <category-def name="net.sf.notrace.category" label="NoTrace Category"/>
+</site>
