@@ -11,10 +11,15 @@
 package net.sf.notrace.application;
 
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
 import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
+import org.eclipse.equinox.app.IApplicationContext;
+import org.osgi.service.event.Event;
+import org.osgi.service.event.EventHandler;
 
 /**
  * This is a stub implementation containing e4 LifeCycle annotated methods.<br />
@@ -26,7 +31,18 @@ import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
 public class E4LifeCycle {
 
 	@PostContextCreate
-	void postContextCreate(IEclipseContext workbenchContext) {
+	void postContextCreate(final IEventBroker eventBroker, IApplicationContext context, IEclipseContext workbenchContext) {
+		
+		eventBroker.subscribe(UIEvents.UILifeCycle.APP_STARTUP_COMPLETE,
+				new EventHandler() {
+					@Override
+					public void handleEvent(Event event) {
+						System.out.println("E4LifeCycle UIEvents.UILifeCycle.APP_STARTUP_COMPLETE");
+						eventBroker.unsubscribe(this);
+					}
+				});
+		// close static splash screen
+		context.applicationRunning();
 	}
 
 	@PreSave
