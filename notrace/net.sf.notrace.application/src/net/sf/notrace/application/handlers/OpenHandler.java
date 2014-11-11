@@ -9,7 +9,7 @@
  *     IBM Corporation - initial API and implementation
  *     Lars Vogel <lars.Vogel@gmail.com> - Bug 419770
  *******************************************************************************/
-package handlers;
+package net.sf.notrace.application.handlers;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.swt.widgets.FileDialog;

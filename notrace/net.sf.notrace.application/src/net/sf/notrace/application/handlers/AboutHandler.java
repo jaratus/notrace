@@ -9,20 +9,19 @@
  *     IBM Corporation - initial API and implementation
  *     Lars Vogel <lars.Vogel@gmail.com> - Bug 419770
  *******************************************************************************/
-package handlers;
+package net.sf.notrace.application.handlers;
 
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.e4.ui.workbench.IWorkbench;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 
-
-public class QuitHandler {
+public class AboutHandler {
 	@Execute
-	public void execute(IWorkbench workbench, Shell shell){
-		if (MessageDialog.openConfirm(shell, "Confirmation",
-				"Do you want to exit?")) {
-			workbench.close();
-		}
+	public void execute(Shell shell) {
+		MessageDialog.openInformation(shell, "About", getGreeting());
+	}
+
+	public String getGreeting() {
+		return "NoTrace E4 Application";
 	}
 }

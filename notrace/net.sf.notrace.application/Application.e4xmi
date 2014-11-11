@@ -5,7 +5,7 @@
       <children xsi:type="advanced:Perspective" xmi:id="_-LmZp2aZEeSuC9ZxMVH3OQ">
         <children xsi:type="basic:PartSashContainer" xmi:id="_-LmZqGaZEeSuC9ZxMVH3OQ">
           <children xsi:type="basic:PartStack" xmi:id="_-LmZqWaZEeSuC9ZxMVH3OQ">
-            <children xsi:type="basic:Part" xmi:id="_5Z9MQGgdEeSt0dozbmkvcA" elementId="net.sf.notrace.application.part.0" contributionURI="bundleclass://net.sf.notrace.application/parts.SamplePart"/>
+            <children xsi:type="basic:Part" xmi:id="_5Z9MQGgdEeSt0dozbmkvcA" elementId="net.sf.notrace.application.part.0" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.parts.SamplePart"/>
           </children>
         </children>
       </children>
@@ -27,10 +27,10 @@
       </children>
     </trimBars>
   </children>
-  <handlers xmi:id="_-LlylGaZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.application.handler.quitCommand" contributionURI="bundleclass://net.sf.notrace.application/handlers.QuitHandler" command="_-Llyk2aZEeSuC9ZxMVH3OQ"/>
-  <handlers xmi:id="_-LlymGaZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.application.handler.openCommand" contributionURI="bundleclass://net.sf.notrace.application/handlers.OpenHandler" command="_-Llyl2aZEeSuC9ZxMVH3OQ"/>
-  <handlers xmi:id="_-Llym2aZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.application.handler.saveCommand" contributionURI="bundleclass://net.sf.notrace.application/handlers.SaveHandler" command="_-LlymmaZEeSuC9ZxMVH3OQ"/>
-  <handlers xmi:id="_-LlynmaZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.application.handler.aboutCommand" contributionURI="bundleclass://net.sf.notrace.application/handlers.AboutHandler" command="_-LlynWaZEeSuC9ZxMVH3OQ"/>
+  <handlers xmi:id="_-LlylGaZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.application.handler.quitCommand" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.handlers.QuitHandler" command="_-Llyk2aZEeSuC9ZxMVH3OQ"/>
+  <handlers xmi:id="_-LlymGaZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.application.handler.openCommand" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.handlers.OpenHandler" command="_-Llyl2aZEeSuC9ZxMVH3OQ"/>
+  <handlers xmi:id="_-Llym2aZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.application.handler.saveCommand" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.handlers.SaveHandler" command="_-LlymmaZEeSuC9ZxMVH3OQ"/>
+  <handlers xmi:id="_-LlynmaZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.application.handler.aboutCommand" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.handlers.AboutHandler" command="_-LlynWaZEeSuC9ZxMVH3OQ"/>
   <bindingTables xmi:id="_-LlylWaZEeSuC9ZxMVH3OQ" bindingContext="_-LlykGaZEeSuC9ZxMVH3OQ">
     <bindings xmi:id="_-LlylmaZEeSuC9ZxMVH3OQ" keySequence="M1+Q" command="_-Llyk2aZEeSuC9ZxMVH3OQ"/>
     <bindings xmi:id="_-LlymWaZEeSuC9ZxMVH3OQ" keySequence="M1+O" command="_-Llyl2aZEeSuC9ZxMVH3OQ"/>
