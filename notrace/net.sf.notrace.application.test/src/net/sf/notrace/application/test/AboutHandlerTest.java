@@ -1,7 +1,7 @@
 package net.sf.notrace.application.test;
 
 import static org.junit.Assert.*;
-import handlers.AboutHandler;
+import net.sf.notrace.application.handlers.AboutHandler;
 
 import org.junit.After;
 import org.junit.AfterClass;
