@@ -32,12 +32,10 @@ import org.osgi.service.event.EventHandler;
 @SuppressWarnings("restriction")
 public class E4LifeCycle {
 
-	public static final String PLUGINID = "net.sf.notrace.application";
-	
 	@PostContextCreate
 	void postContextCreate(final ISplashService splashService, final IEventBroker eventBroker, IApplicationContext context, IEclipseContext workbenchContext) {
 		
-		splashService.setSplashPluginId(PLUGINID);
+		splashService.setSplashPluginId(ApplicationActivator.PLUGIN_ID);
 		splashService.setSplashImagePath("icons/splash.bmp");
 		splashService.open();
 		splashService.setMessage("Starting Applikation ...");

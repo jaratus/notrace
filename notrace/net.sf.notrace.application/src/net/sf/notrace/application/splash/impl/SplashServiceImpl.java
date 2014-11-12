@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import net.sf.notrace.application.ApplicationActivator;
 import net.sf.notrace.application.splash.ISplashService;
 
 import org.eclipse.core.runtime.Assert;
@@ -239,6 +240,10 @@ public class SplashServiceImpl implements ISplashService {
 		textFont = null;
 		progressBar = null;
 		progressRect = null;
+		try {
+			ApplicationActivator.getContext().getBundle().stop();
+		} catch (BundleException e) {
+		}
 	}
 
 	@Override
