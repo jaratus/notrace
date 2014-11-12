@@ -36,6 +36,11 @@ public class E4LifeCycle {
 	void postContextCreate(final ISplashService splashService, final IEventBroker eventBroker, IApplicationContext context, IEclipseContext workbenchContext) {
 		
 		splashService.setSplashPluginId(ApplicationActivator.PLUGIN_ID);
+		
+		/* 
+		 * Splash image from http://www.deviantart.com/art/Eclipse-simple-splash-screen-155597715
+		 * By http://nicoulaj.deviantart.com/
+		 */
 		splashService.setSplashImagePath("icons/splash.bmp");
 		splashService.open();
 		splashService.setMessage("Starting Applikation ...");
