@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" name="net.sf.notrace.application.splash">
+   <implementation class="net.sf.notrace.application.splash.impl.SplashServiceImpl"/>
+   <service>
+      <provide interface="net.sf.notrace.application.splash.ISplashService"/>net.sf.notrace.application.splash.ISplashServicemsw.ui.splash.ISplashService"/>
+   </service>
+</scr:component>

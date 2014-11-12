@@ -10,6 +10,8 @@
  *******************************************************************************/
 package net.sf.notrace.application;
 
+import net.sf.notrace.application.splash.ISplashService;
+
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.workbench.UIEvents;
@@ -30,17 +32,27 @@ import org.osgi.service.event.EventHandler;
 @SuppressWarnings("restriction")
 public class E4LifeCycle {
 
+	public static final String PLUGINID = "net.sf.notrace.application";
+	
 	@PostContextCreate
-	void postContextCreate(final IEventBroker eventBroker, IApplicationContext context, IEclipseContext workbenchContext) {
+	void postContextCreate(final ISplashService splashService, final IEventBroker eventBroker, IApplicationContext context, IEclipseContext workbenchContext) {
 		
-		eventBroker.subscribe(UIEvents.UILifeCycle.APP_STARTUP_COMPLETE,
-				new EventHandler() {
-					@Override
-					public void handleEvent(Event event) {
-						System.out.println("E4LifeCycle UIEvents.UILifeCycle.APP_STARTUP_COMPLETE");
-						eventBroker.unsubscribe(this);
-					}
-				});
+		splashService.setSplashPluginId(PLUGINID);
+		splashService.setSplashImagePath("icons/splash.bmp");
+		splashService.open();
+		splashService.setMessage("Starting Applikation ...");
+		
+		// The should be a better way to close the Splash
+		// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=376821
+		eventBroker.subscribe(UIEvents.UILifeCycle.APP_STARTUP_COMPLETE, new EventHandler() {
+			@Override
+			public void handleEvent(Event event) {
+				splashService.close();
+				eventBroker.unsubscribe(this);
+				System.out.println("E4LifeCycle postContextCreate");
+			}
+		});
+		
 		// close static splash screen
 		context.applicationRunning();
 	}
