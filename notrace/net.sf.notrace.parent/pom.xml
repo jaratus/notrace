@@ -125,5 +125,6 @@
   	<module>../../lib/com.fasterxml.jackson.test</module>
   	<module>../net.sf.notrace.repository</module>
   	<module>../net.sf.notrace.atrace</module>
+  	<module>../net.sf.notrace.atrace.test</module>
   </modules>
 </project>

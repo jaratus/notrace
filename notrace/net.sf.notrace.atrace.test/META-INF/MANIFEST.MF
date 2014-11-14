@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Atrace Test
+Bundle-SymbolicName: net.sf.notrace.atrace.test
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: net.sf.notrace.atrace;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit,
+ net.sf.notrace.application;bundle-version="1.0.0"
