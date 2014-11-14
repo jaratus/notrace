@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Atrace
+Bundle-SymbolicName: net.sf.notrace.atrace
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.sf.notrace.atrace.AtraceActivator
+Require-Bundle: org.eclipse.core.runtime,
+ com.fasterxml.jackson;bundle-version="2.4.3"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
