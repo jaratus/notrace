@@ -4,8 +4,12 @@
 package net.sf.notrace.atrace.test;
 
 import static org.junit.Assert.*;
+
+import java.io.File;
+
 import junit.framework.Assert;
 import net.sf.notrace.atrace.AtraceModule;
+import net.sf.notrace.atrace.deser.SystraceOutputParser;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.After;
@@ -62,6 +66,14 @@ public class DummyTest {
 	@Test
 	public void testVersion() {
 		assertEquals(new AtraceModule().version().getMajorVersion(), 1);
+	}
+	
+	@Test
+	public void test_1() {
+		
+		File systraceAssets = new File("data/falcon_pro_trace.html");
+		
+		
 	}
 
 }
