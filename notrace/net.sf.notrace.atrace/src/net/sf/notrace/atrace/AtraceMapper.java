@@ -1,6 +1,5 @@
 package net.sf.notrace.atrace;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
 import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
@@ -10,14 +9,14 @@ public class AtraceMapper extends ObjectMapper {
 	private static final long serialVersionUID = 1L;
 
 	public AtraceMapper() {
-		super();
+		this(new AtraceFactory());
 	}
 
-	public AtraceMapper(JsonFactory jf) {
+	public AtraceMapper(AtraceFactory jf) {
 		super(jf);
 	}
 
-	public AtraceMapper(JsonFactory jf, DefaultSerializerProvider sp,
+	public AtraceMapper(AtraceFactory jf, DefaultSerializerProvider sp,
 			DefaultDeserializationContext dc) {
 		super(jf, sp, dc);
 	}
