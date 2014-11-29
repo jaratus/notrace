@@ -7,3 +7,4 @@ Fragment-Host: net.sf.notrace.atrace;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit,
  net.sf.notrace.application;bundle-version="1.0.0"
+Import-Package: com.fasterxml.jackson.databind

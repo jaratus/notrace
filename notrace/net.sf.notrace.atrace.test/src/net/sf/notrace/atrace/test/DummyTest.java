@@ -25,6 +25,7 @@ import com.fasterxml.jackson.databind.MappingIterator;
 
 /**
  * @author admin
+ * @param <T>
  *
  */
 public class DummyTest {
@@ -74,13 +75,19 @@ public class DummyTest {
 	}
 	
 	@Test
-	public void test_1() throws JsonProcessingException, IOException {
+	public <T> void test_1() throws JsonProcessingException, IOException {
 		
 		File inputFile = new File("data/falcon_pro_trace.txt");
 		
 		AtraceMapper mapper = new AtraceMapper();
 		
-		//MappingIterator<T> it = mapper.reader(Map.class).readValue(inputFile);
+		MappingIterator<T> it = mapper.reader(Map.class).readValue(inputFile);
+		
+		while (it.hasNext()) {
+			@SuppressWarnings("unused")
+			T row = it.nextValue();
+
+		}
 	}
 
 }

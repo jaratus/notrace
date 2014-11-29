@@ -28,7 +28,7 @@ public class AtraceParser extends ParserMinimalBase {
 	
 	@Override
 	public JsonToken nextToken() throws IOException, JsonParseException {
-		return null;
+		return JsonToken.VALUE_STRING;
 	}
 
 	@Override
