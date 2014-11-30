@@ -127,5 +127,6 @@
   	<module>../net.sf.notrace.atrace</module>
   	<module>../net.sf.notrace.atrace.test</module>
   	<module>../net.sf.notrace.ftrace</module>
+  	<module>../net.sf.notrace.ftrace.test</module>
   </modules>
 </project>
