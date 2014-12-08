@@ -9,7 +9,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.UUID;
 
 import net.sf.notrace.ftrace.deser.FtraceParser;
 
@@ -20,6 +23,7 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.core.format.InputAccessor;
 import com.fasterxml.jackson.core.format.MatchStrength;
 import com.fasterxml.jackson.core.io.IOContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 public class FtraceFactory extends JsonFactory {
 
@@ -27,27 +31,30 @@ public class FtraceFactory extends JsonFactory {
 
 	public static final String FORMAT_NAME_ATRACE = "ATRACE";
 	
+	private URI fileUri = URI.create("http://net.sf.notrace/"+ UUID.randomUUID());
+	
 	/*
     /**********************************************************************
     /* Factory construction, configuration
     /**********************************************************************
      */
-	public FtraceFactory() {
-		super();
-	}
-
 	public FtraceFactory(JsonFactory src, ObjectCodec codec) {
 		super(src, codec);
+		super._objectCodec = codec;
 	}
 
 	public FtraceFactory(ObjectCodec oc) {
 		super(oc);
+		super._objectCodec = oc;
 	}
 
+	public FtraceFactory() {
+		this(null);
+	}
 	@Override
 	public JsonFactory copy() {
 		_checkInvalidCopy(FtraceFactory.class);
-        return new FtraceFactory(this, null);
+        return new FtraceFactory(this, this.getCodec());
 	}
 	/*
     /**********************************************************
@@ -85,13 +92,13 @@ public class FtraceFactory extends JsonFactory {
 		
 		InputStreamReader inr = new InputStreamReader(in);
 		
-		return new FtraceParser(inr, ctxt);
+		return new FtraceParser(inr, ctxt, super._objectCodec);
 	}
 
 	@Override
 	protected FtraceParser _createParser(Reader r, IOContext ctxt)
 			throws IOException {
-		return new FtraceParser(r, ctxt);
+		return new FtraceParser(r, ctxt, super._objectCodec);
 	}
 
 	@Override
@@ -100,7 +107,7 @@ public class FtraceFactory extends JsonFactory {
 		
 		CharArrayReader car = new CharArrayReader(data, offset, len);
 		
-		return new FtraceParser(car, ctxt);
+		return new FtraceParser(car, ctxt, super._objectCodec);
 	}
 
 	@Override
@@ -111,7 +118,7 @@ public class FtraceFactory extends JsonFactory {
 		
 		InputStreamReader inr = new InputStreamReader(bai);
 		
-		return new FtraceParser(inr, ctxt);
+		return new FtraceParser(inr, ctxt, super._objectCodec);
 	}
 
 	 /*
@@ -122,25 +129,51 @@ public class FtraceFactory extends JsonFactory {
 	@Override
 	public FtraceParser createParser(File f) throws IOException,
 			JsonParseException {
+		
+		this.fileUri = f.toURI();
+		
 		return _createParser(new FileInputStream(f), _createContext(f, true));
 	}
 
 	@Override
 	public FtraceParser createParser(URL url) throws IOException,
 			JsonParseException {
+		
+		try {
+			
+			this.fileUri = url.toURI();
+			
+		} catch (URISyntaxException e) {
+			
+			throw new JsonMappingException(e.getMessage());
+			
+		}
+				
 		return _createParser(_optimizedStreamFromURL(url), _createContext(url, true));
 	}
 
 	@Override
 	public FtraceParser createParser(InputStream in) throws IOException,
 			JsonParseException {
-		return _createParser(in, _createContext(in, false));
+		
+		/* Fix me. RH
+		 * FtraceService requires to build a cache table base on file ize
+		 * Reader is not support at the time */
+		throw new JsonMappingException("Not support, please use File or URL instead");
+		
+		//return _createParser(in, _createContext(in, false));
 	}
 
 	@Override
 	public FtraceParser createParser(Reader r) throws IOException,
 			JsonParseException {
-		return _createParser(r, _createContext(r, false));
+		
+		/* Fix me. RH
+		 * FtraceService requires to build a cache table base on file ize
+		 * Reader is not support at the time */
+		throw new JsonMappingException("Not support, please use File or URL instead");
+		
+		//return _createParser(r, _createContext(r, false));
 	}
 
 	@Override

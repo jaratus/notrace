@@ -25,4 +25,18 @@ public class AtraceMapper extends ObjectMapper {
 		super(src);
 	}
 
+	/*
+    /**********************************************************************
+    /* Additional typed accessors
+    /**********************************************************************
+     */
+
+    /**
+     * Overridden with more specific type, since factory we have
+     * is always of type {@link AtraceFactory}
+     */
+    @Override
+    public final AtraceFactory getFactory() {
+        return (AtraceFactory) _jsonFactory;
+    }
 }

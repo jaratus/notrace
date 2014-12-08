@@ -3,18 +3,27 @@ package net.sf.notrace.ftrace.test;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Map.Entry;
 
+import net.sf.notrace.ftrace.deser.FtraceDeserializer;
+import net.sf.notrace.ftrace.event.impl.FtraceEvent;
+import net.sf.notrace.ftrace.module.FtraceMapper;
+import net.sf.notrace.ftrace.module.FtraceModule;
 import net.sf.notrace.ftrace.service.IFtraceService;
 import net.sf.notrace.ftrace.service.impl.FtraceService;
 
+import org.eclipse.linuxtools.tmf.core.event.ITmfEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.MappingIterator;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.TreeBasedTable;
 
@@ -62,6 +71,30 @@ public class DummyTest {
 			String entryData = entry.getKey() +" "+ entry.getValue();
 			
 			System.out.println("IFtraceService entryData = "+ entryData);
+		}
+	}
+	
+	@Test
+	public <T> void test_1() throws JsonProcessingException, IOException {
+		
+		if(!_file.exists()) throw new IOException("File not exist");
+		
+		FtraceDeserializer deserializer = new FtraceDeserializer();
+		
+		FtraceModule module = new FtraceModule();
+		
+		module.addDeserializer(ITmfEvent.class, deserializer);
+		
+		FtraceMapper mapper = new FtraceMapper();
+		
+		mapper.registerModule(module);
+		
+		MappingIterator<T> it = mapper.reader(ITmfEvent.class).readValues(_file);
+		
+		while (it.hasNext()) {
+			@SuppressWarnings("unused")
+			T row = it.nextValue();
+
 		}
 	}
 

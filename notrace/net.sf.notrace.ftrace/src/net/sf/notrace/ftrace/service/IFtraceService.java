@@ -11,7 +11,7 @@ import com.google.common.collect.TreeBasedTable;
 
 public interface IFtraceService {
 
-public void addTrace(URI fileURI) throws IOException;
+	public void addTrace(URI fileURI) throws IOException;
 	
 	public TreeBasedTable<Integer, Long, Long> getPageTable(URI fileUri);
 	

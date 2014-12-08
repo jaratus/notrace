@@ -78,7 +78,7 @@ public class DummyTest {
 	@Ignore
 	public <T> void test_1() throws JsonProcessingException, IOException {
 		
-		File inputFile = new File("data/falcon_pro_trace.txt");
+		File inputFile = new File("data/android_systrace.txt");
 		
 		AtraceMapper mapper = new AtraceMapper();
 		

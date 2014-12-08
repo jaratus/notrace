@@ -20,15 +20,28 @@ public class FtraceParser extends ParserMinimalBase {
 	private Reader _reader;
 	private IOContext _ioContext;
 	
-	public FtraceParser(Reader r, IOContext ctxt) {
+	/**
+     * Codec used for data binding when (if) requested.
+     */
+    protected ObjectCodec _objectCodec;
+    
+	public FtraceParser(Reader r, IOContext ctxt, ObjectCodec objectCodec) {
 		
 		this._reader = r;
 		this._ioContext = ctxt;
+		this._objectCodec = objectCodec;
 	}
+	
+	private int t = 0;
 	
 	@Override
 	public JsonToken nextToken() throws IOException, JsonParseException {
-		return JsonToken.VALUE_STRING;
+		
+		t++;
+		
+		if(t > 10) return null;
+		
+		return super._currToken = JsonToken.START_OBJECT;
 	}
 
 	@Override
@@ -92,14 +105,14 @@ public class FtraceParser extends ParserMinimalBase {
 	}
 
 	@Override
-	public ObjectCodec getCodec() {
-		return null;
-	}
+    public ObjectCodec getCodec() {
+        return _objectCodec;
+    }
 
-	@Override
-	public void setCodec(ObjectCodec c) {
-		
-	}
+    @Override
+    public void setCodec(ObjectCodec c) {
+        _objectCodec = c;
+    }
 
 	@Override
 	public Version version() {

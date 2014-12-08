@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URI;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -226,6 +227,11 @@ public class FtraceService implements IFtraceService {
 		}
 		
 		return buffer;
+	}
+	
+	private void createPageTable(Reader reader) throws IOException{
+		
+		
 	}
 	
 	/**
