@@ -53,4 +53,19 @@ public class FtraceEvent extends TmfEvent implements IFtraceEvent, ITmfEvent {
 	public String getEventName() {
 		return eventName;
 	}
+
+	@Override
+	public IFtraceEvent newEvent(ITmfTrace fTrace) {
+		
+		final long fRank = this.getRank();
+        final ITmfTimestamp fTimestamp = this.getTimestamp();
+        final String fSource = this.getSource();
+        final ITmfEventType fType = this.getType();
+        final ITmfEventField fContent = this.getContent();
+        final String fReference = this.getReference();
+        final int sourceCPU = this.getCPU();
+        final String eventName = this.getEventName();
+        
+        return new FtraceEvent(fTrace, fRank, fTimestamp, fSource, fType, fContent, fReference, sourceCPU, eventName);
+	}
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.linuxtools.tmf.core.tracetype">
+      <type
+            event_type="org.eclipse.linuxtools.tmf.core.event.TmfEvent"
+            id="net.sf.notrace.ftrace.type1"
+            isDirectory="false"
+            name="net.sf.notrace.ftrace.type1"
+            trace_type="net.sf.notrace.ftrace.TmfTrace1">
+      </type>
+   </extension>
+
+</plugin>
