@@ -15,6 +15,8 @@ import java.net.URL;
 import java.util.UUID;
 
 import net.sf.notrace.ftrace.deser.FtraceParser;
+import net.sf.notrace.ftrace.service.IFtraceService;
+import net.sf.notrace.ftrace.service.impl.FtraceService;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -33,6 +35,7 @@ public class FtraceFactory extends JsonFactory {
 	
 	private URI fileUri = URI.create("http://net.sf.notrace/"+ UUID.randomUUID());
 	
+	private IFtraceService ftraceService = new FtraceService();
 	/*
     /**********************************************************************
     /* Factory construction, configuration
@@ -92,22 +95,27 @@ public class FtraceFactory extends JsonFactory {
 		
 		InputStreamReader inr = new InputStreamReader(in);
 		
-		return new FtraceParser(inr, ctxt, super._objectCodec);
+		return new FtraceParser(ftraceService, ctxt, super._objectCodec);
 	}
 
 	@Override
 	protected FtraceParser _createParser(Reader r, IOContext ctxt)
 			throws IOException {
-		return new FtraceParser(r, ctxt, super._objectCodec);
+		
+		return new FtraceParser(ftraceService, ctxt, super._objectCodec);
 	}
 
 	@Override
 	protected FtraceParser _createParser(char[] data, int offset, int len,
 			IOContext ctxt, boolean recyclable) throws IOException {
 		
-		CharArrayReader car = new CharArrayReader(data, offset, len);
+		//CharArrayReader car = new CharArrayReader(data, offset, len);
 		
-		return new FtraceParser(car, ctxt, super._objectCodec);
+		String resultString = new String(data, offset, len);
+		
+		byte[] b = resultString.getBytes();
+		
+		return new FtraceParser(ftraceService, ctxt, super._objectCodec);
 	}
 
 	@Override
@@ -118,7 +126,7 @@ public class FtraceFactory extends JsonFactory {
 		
 		InputStreamReader inr = new InputStreamReader(bai);
 		
-		return new FtraceParser(inr, ctxt, super._objectCodec);
+		return new FtraceParser(ftraceService, ctxt, super._objectCodec);
 	}
 
 	 /*
@@ -132,6 +140,8 @@ public class FtraceFactory extends JsonFactory {
 		
 		this.fileUri = f.toURI();
 		
+		ftraceService.addTrace(this.fileUri);
+		
 		return _createParser(new FileInputStream(f), _createContext(f, true));
 	}
 
@@ -142,6 +152,8 @@ public class FtraceFactory extends JsonFactory {
 		try {
 			
 			this.fileUri = url.toURI();
+			
+			ftraceService.addTrace(this.fileUri);
 			
 		} catch (URISyntaxException e) {
 			

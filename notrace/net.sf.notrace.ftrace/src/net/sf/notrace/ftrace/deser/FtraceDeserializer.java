@@ -34,59 +34,11 @@ public class FtraceDeserializer extends StdDeserializer<ITmfEvent> {
 		ObjectMapper mapper = (ObjectMapper) jp.getCodec();
 		//ObjectNode root = (ObjectNode) mapper.readTree(jp);  
 		
-		return new ITmfEvent(){
-
-			@Override
-			public Object getAdapter(Class adapter) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public ITmfTrace getTrace() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public long getRank() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
-			@Override
-			public ITmfTimestamp getTimestamp() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String getSource() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public ITmfEventType getType() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public ITmfEventField getContent() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String getReference() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-		};
-		
 		//return mapper.reader().readValue(jp);
+		
+		FtraceParser p = (FtraceParser) jp;
+		
+		return p.nextEvent();
 		
 	}
 

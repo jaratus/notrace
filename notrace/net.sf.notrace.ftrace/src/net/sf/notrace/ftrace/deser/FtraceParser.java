@@ -1,9 +1,18 @@
 package net.sf.notrace.ftrace.deser;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.net.URI;
+import java.net.URL;
+import java.util.TreeMap;
+import java.util.concurrent.ExecutionException;
+
+import org.eclipse.linuxtools.tmf.core.event.ITmfEvent;
+
+import net.sf.notrace.ftrace.service.IFtraceService;
 
 import com.fasterxml.jackson.core.Base64Variant;
 import com.fasterxml.jackson.core.JsonLocation;
@@ -14,32 +23,71 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.core.base.ParserMinimalBase;
 import com.fasterxml.jackson.core.io.IOContext;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.Maps;
 
 public class FtraceParser extends ParserMinimalBase {
 
-	private Reader _reader;
 	private IOContext _ioContext;
 	
-	/**
-     * Codec used for data binding when (if) requested.
-     */
+	private IFtraceService _service;
+	
+	/* Codec used for data binding when (if) requested. */
+     
     protected ObjectCodec _objectCodec;
     
-	public FtraceParser(Reader r, IOContext ctxt, ObjectCodec objectCodec) {
+    private URI url = null;
+    
+    private BiMap<Long, Integer> rankTable = null;
+    
+    private long nbEvents = 0;
+    
+	public FtraceParser(IFtraceService service, IOContext ctxt, ObjectCodec objectCodec) {
 		
-		this._reader = r;
 		this._ioContext = ctxt;
 		this._objectCodec = objectCodec;
+		this._service = service;
+		
+		Object o = this._ioContext.getSourceReference();
+		
+		if(o instanceof File){
+			
+			this.url = ((File) o).toURI();
+			
+		}else{
+			
+			this.url = (URI) o;
+		}
+		
+		this.rankTable = this._service.getRankTable(url);
+		
+		TreeMap<Long, Integer> tMap = Maps.<Long, Integer>newTreeMap();
+		
+		tMap.putAll(this.rankTable);
+		
+		nbEvents = tMap.lastKey();
 	}
 	
-	private int t = 0;
+	private int rank = 0;
+	
+	public ITmfEvent nextEvent() throws JsonParseException{
+		
+		try {
+			
+			return this._service.getTmfEvent(this.url, rank);
+			
+		} catch (ExecutionException e) {
+			
+			throw new JsonParseException(e.getMessage(), this.getTokenLocation());
+		}
+	}
 	
 	@Override
 	public JsonToken nextToken() throws IOException, JsonParseException {
 		
-		t++;
+		rank++;
 		
-		if(t > 10) return null;
+		if(rank > nbEvents) return null;
 		
 		return super._currToken = JsonToken.START_OBJECT;
 	}

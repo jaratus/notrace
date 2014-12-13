@@ -92,10 +92,34 @@ public class DummyTest {
 		MappingIterator<T> it = mapper.reader(ITmfEvent.class).readValues(_file);
 		
 		while (it.hasNext()) {
+			
 			@SuppressWarnings("unused")
 			T row = it.nextValue();
 
+			if(row instanceof ITmfEvent){
+				
+				ITmfEvent ev = (ITmfEvent) row;
+				
+				String source = ev.getSource();
+				String ref = ev.getReference();
+				long rank = ev.getRank();
+				
+				String event = rank +" : "+ source  +" : "+ ref;
+				
+				//System.out.println("event : "+ event);
+			}
 		}
 	}
 
+	@Test
+	public <T> void test_2() throws JsonProcessingException, IOException {
+		
+		for(int i=0;i<1000;i++){
+			
+			test_1();
+			
+			System.out.println("test run : "+ i);
+		
+		}
+	}
 }

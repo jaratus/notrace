@@ -59,8 +59,6 @@ public class FtraceService implements IFtraceService {
 	
 	private static final ConcurrentMap<URI, TraceCache> cacheTables = Maps.<URI, TraceCache>newConcurrentMap();
 	
-	/* RH. Fix me.
-	 * could avoid pass ITmfTrace? */
 	public void addTrace(URI fileUri) throws IOException{
 		
 		/* RH. Fix me.
@@ -227,11 +225,6 @@ public class FtraceService implements IFtraceService {
 		}
 		
 		return buffer;
-	}
-	
-	private void createPageTable(Reader reader) throws IOException{
-		
-		
 	}
 	
 	/**
