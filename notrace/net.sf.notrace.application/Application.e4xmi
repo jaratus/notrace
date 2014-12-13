@@ -2,11 +2,12 @@
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_-LlLgGaZEeSuC9ZxMVH3OQ" elementId="org.eclipse.e4.ide.application" bindingContexts="_-LlykGaZEeSuC9ZxMVH3OQ">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_-LlLgWaZEeSuC9ZxMVH3OQ" label="net.sf.notrace.application" width="1280" height="768">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_-LmZpmaZEeSuC9ZxMVH3OQ">
-      <children xsi:type="advanced:Perspective" xmi:id="_-LmZp2aZEeSuC9ZxMVH3OQ">
-        <children xsi:type="basic:PartSashContainer" xmi:id="_-LmZqGaZEeSuC9ZxMVH3OQ">
-          <children xsi:type="basic:PartStack" xmi:id="_-LmZqWaZEeSuC9ZxMVH3OQ">
-            <children xsi:type="basic:Part" xmi:id="_5Z9MQGgdEeSt0dozbmkvcA" elementId="net.sf.notrace.application.part.0" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.parts.SamplePart"/>
+      <children xsi:type="advanced:Perspective" xmi:id="_-LmZp2aZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.perspective.thread">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_-LmZqGaZEeSuC9ZxMVH3OQ" containerData="10000">
+          <children xsi:type="basic:PartStack" xmi:id="_-LmZqWaZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.thread.partstack.foo" containerData="7640">
+            <children xsi:type="basic:Part" xmi:id="_5Z9MQGgdEeSt0dozbmkvcA" elementId="net.sf.notrace.application.part.samplepart" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.parts.SamplePart"/>
           </children>
+          <children xsi:type="basic:PartStack" xmi:id="_4e7JAIKYEeSrBvGVe7Q71Q" elementId="net.sf.notrace.thread.partstack.bar" containerData="2360"/>
         </children>
       </children>
     </children>
