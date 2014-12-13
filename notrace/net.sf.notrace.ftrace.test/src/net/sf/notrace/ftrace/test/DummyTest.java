@@ -114,7 +114,7 @@ public class DummyTest {
 	@Test
 	public <T> void test_2() throws JsonProcessingException, IOException {
 		
-		for(int i=0;i<1000;i++){
+		for(int i=0;i<10;i++){
 			
 			test_1();
 			
