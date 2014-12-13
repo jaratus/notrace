@@ -3,6 +3,10 @@
 <plugin>
    <extension
          point="org.eclipse.linuxtools.tmf.ui.tracetypeui">
+      <type
+            icon="icons/rainbow.png"
+            tracetype="net.sf.notrace.ftrace.trace.FtraceTrace">
+      </type>
    </extension>
 
 </plugin>

@@ -5,10 +5,10 @@
          point="org.eclipse.linuxtools.tmf.core.tracetype">
       <type
             event_type="org.eclipse.linuxtools.tmf.core.event.TmfEvent"
-            id="net.sf.notrace.ftrace.type1"
+            id="net.sf.notrace.ftrace.trace.FtraceTrace"
             isDirectory="false"
-            name="net.sf.notrace.ftrace.type1"
-            trace_type="net.sf.notrace.ftrace.TmfTrace1">
+            name="FtraceTrace"
+            trace_type="net.sf.notrace.ftrace.trace.FtraceTrace">
       </type>
    </extension>
 
