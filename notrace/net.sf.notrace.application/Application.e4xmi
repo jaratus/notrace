@@ -5,7 +5,7 @@
       <children xsi:type="advanced:Perspective" xmi:id="_-LmZp2aZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.perspective.thread">
         <children xsi:type="basic:PartSashContainer" xmi:id="_-LmZqGaZEeSuC9ZxMVH3OQ" containerData="10000">
           <children xsi:type="basic:PartStack" xmi:id="_-LmZqWaZEeSuC9ZxMVH3OQ" elementId="net.sf.notrace.thread.partstack.foo" containerData="7640">
-            <children xsi:type="basic:Part" xmi:id="_5Z9MQGgdEeSt0dozbmkvcA" elementId="net.sf.notrace.application.part.samplepart" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.parts.SamplePart"/>
+            <children xsi:type="basic:Part" xmi:id="_5Z9MQGgdEeSt0dozbmkvcA" elementId="net.sf.notrace.application.part.samplepart" contributionURI="bundleclass://net.sf.notrace.application/net.sf.notrace.application.parts.SamplePart" label="SamplePart" iconURI="platform:/plugin/net.sf.notrace.application/icons/alt_window_16.gif" tooltip="SamplePart"/>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_4e7JAIKYEeSrBvGVe7Q71Q" elementId="net.sf.notrace.thread.partstack.bar" containerData="2360"/>
         </children>

@@ -8,5 +8,15 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <e4view
+            class="net.sf.notrace.ftrace.ui.views.ControlFlowViewWrapper"
+            icon="icons/rainbow.png"
+            id="net.sf.notrace.ftrace.ui.views.ControlFlowViewWrapper"
+            name="ControlFlowViewWrapper"
+            restorable="true">
+      </e4view>
+   </extension>
 
 </plugin>
