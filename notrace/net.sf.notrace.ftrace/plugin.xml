@@ -11,5 +11,17 @@
             trace_type="net.sf.notrace.ftrace.trace.FtraceTrace">
       </type>
    </extension>
+   <extension
+         point="org.eclipse.linuxtools.tmf.core.analysis">
+      <module
+            analysis_module="net.sf.notrace.ftrace.analysis.FtraceAnalysisModule"
+            id="net.sf.notrace.ftrace.analysis.FtraceAnalysisModule"
+            name="FtraceAnalysisModule">
+         <tracetype
+               applies="true"
+               class="net.sf.notrace.ftrace.trace.FtraceTrace">
+         </tracetype>
+      </module>
+   </extension>
 
 </plugin>

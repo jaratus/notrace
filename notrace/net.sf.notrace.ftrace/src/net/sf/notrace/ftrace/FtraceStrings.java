@@ -50,6 +50,7 @@ public interface FtraceStrings {
     static final String IRQ_NAME = "irq_name";
     static final String COMM     = "comm";
     static final String NAME     = "name";
+    static final String PID      = "pid";
     static final String TID      = "tid";
     static final String PPID     = "ppid";
     static final String STATUS   = "status";

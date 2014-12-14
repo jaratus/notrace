@@ -14,8 +14,13 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: net.sf.notrace.ftrace,
+ net.sf.notrace.ftrace.analysis,
  net.sf.notrace.ftrace.cache,
+ net.sf.notrace.ftrace.deser,
  net.sf.notrace.ftrace.event,
  net.sf.notrace.ftrace.event.impl,
+ net.sf.notrace.ftrace.module,
  net.sf.notrace.ftrace.service,
- net.sf.notrace.ftrace.service.impl
+ net.sf.notrace.ftrace.service.impl,
+ net.sf.notrace.ftrace.state,
+ net.sf.notrace.ftrace.trace
