@@ -119,11 +119,19 @@
    </plugins>
 
    <features>
-      <feature id="net.sf.notrace.feature" version="1.0.0.qualifier"/>
-      <feature id="org.eclipse.rcp" version="4.4.0.v20140925-0400"/>
+      <feature id="net.sf.notrace.feature"/>
+      <feature id="org.eclipse.rcp"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.e4.rcp"/>
       <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.equinox.p2.core.feature"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.linuxtools.tmf"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature"/>
+      <feature id="org.eclipse.ecf.core.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature"/>
    </features>
 
    <configurations>
